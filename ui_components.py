@@ -23,13 +23,17 @@ CSS = """
   --ok:#1E6B45; --ok-bg:#EEF7F1; --info:#2B5C8A; --info-bg:#EEF4FA;
   --warn:#7A4F00; --warn-bg:#FFF6E0; --stop:#9B2C2C; --stop-bg:#FDF1F1;
 }
-.block-container{max-width:1180px; padding-top:1.4rem; padding-bottom:3rem;}
-.p2p-scope{display:flex; gap:.75rem; align-items:flex-start; background:#243B53; color:#fff;
-  border-radius:8px; padding:.7rem 1rem; margin-bottom:1.1rem; line-height:1.4;}
+/* Streamlit's toolbar is fixed at the top (about 3.75rem tall). Keep clear of it. */
+.block-container, [data-testid="stMainBlockContainer"]{max-width:1180px;
+  padding-top:calc(3.75rem + 1.25rem) !important; padding-bottom:3rem;}
+.p2p-scope{position:relative; z-index:0; display:flex; gap:.75rem; align-items:flex-start;
+  background:#243B53; color:#fff; border-radius:8px; padding:.85rem 1.1rem; margin:0 0 1.1rem 0;
+  line-height:1.45; height:auto; min-height:0; overflow:visible; box-sizing:border-box;}
+.p2p-scope > div{flex:1 1 auto; min-width:0; overflow-wrap:anywhere;}
 .p2p-scope .tag{flex:none; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   border:1px solid rgba(255,255,255,.55); border-radius:4px; padding:.1rem .4rem; margin-top:.15rem;}
-.p2p-scope strong{font-weight:650;}
-.p2p-scope small{display:block; opacity:.85; font-size:.82rem; margin-top:.15rem;}
+.p2p-scope strong{display:block; font-weight:650; font-size:1rem; line-height:1.4;}
+.p2p-scope small{display:block; opacity:.88; font-size:.84rem; line-height:1.45; margin-top:.25rem;}
 .p2p-eyebrow{color:var(--muted); font-size:.8rem; letter-spacing:.05em; text-transform:uppercase; margin:0;}
 .p2p-title{font-size:1.9rem; font-weight:700; color:var(--ink); margin:.1rem 0 .35rem 0; line-height:1.2;}
 .p2p-lead{color:var(--muted); font-size:1rem; max-width:62ch; margin:0 0 .7rem 0;}
@@ -231,8 +235,9 @@ def lookup_panel_html(lk: dict) -> str:
 
 
 def footer_html() -> str:
-    return (f'<div class="p2p-footer">{_e(SCOPE_STATEMENT)} Runs locally; nothing is published. '
-            'Role selection is simulated and is not authentication.</div>')
+    return (f'<div class="p2p-footer">{_e(SCOPE_STATEMENT)} Publicly hosted on Streamlit Community Cloud '
+            'as a portfolio demonstration. It does not represent AstraZeneca\'s '
+            'systems, data, policies or processes. Role selection is simulated and is not authentication.</div>')
 
 
 def raw_json(lk: dict) -> str:

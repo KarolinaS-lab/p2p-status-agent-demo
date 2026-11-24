@@ -1,6 +1,6 @@
 # Offline preview scenario results
 
-Generated 2026-11-24 14:33 UTC by `scripts/run_scenarios.py`. **Run type: offline preview (no AI model called).** Answer text is a template filled from the lookup.
+Generated 2026-11-24 15:45 UTC by `scripts/run_scenarios.py`. **Run type: offline preview (no AI model called).** Answer text is a template filled from the lookup.
 
 | # | Scenario | Role | Query | Expected | Actual (kind · outcomes · handoff) | Answer shown | Result |
 |---|---|---|---|---|---|---|---|

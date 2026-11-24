@@ -3,7 +3,9 @@
 > **Independent prototype. Synthetic data only. Not connected to AstraZeneca.**
 > All organisations, suppliers, IDs, sources and people are fictional. See `docs/SCOPE.md`.
 
-A small local app that answers questions such as *"What's the status of PO-20450?"* by looking up fictional purchase requests, purchase orders and invoices. It handles missing, ambiguous, stale, conflicting, unauthorised and "please approve or pay this" requests safely. It can't change anything.
+**Hosted demo:** the same demo is publicly hosted on Streamlit Community Cloud at https://p2p-status-agent-demo-5qminebdynbdexbfypimjt.streamlit.app/. You can also run it locally by following the steps below.
+
+A small Streamlit app that answers questions such as *"What's the status of PO-20450?"* by looking up fictional purchase requests, purchase orders and invoices. It handles missing, ambiguous, stale, conflicting, unauthorised and "please approve or pay this" requests safely. It can't change anything.
 
 - **Offline preview** (default, free): no AI. The app looks up the record and fills a fixed answer template.
 - **Live Claude agent** (optional): Claude decides when to call the single read-only tool and phrases the answer, and the app checks that answer. **Requires your own Anthropic API key, and API use may be billed separately.**
@@ -35,7 +37,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Your browser opens at http://localhost:8501. The app runs only on your computer and is not published. Stop it with `Ctrl+C`.
+Your browser opens at http://localhost:8501. This local copy runs only on your computer; running it locally does not publish anything. (The public hosted version is at https://p2p-status-agent-demo-5qminebdynbdexbfypimjt.streamlit.app/.) Stop it with `Ctrl+C`.
 
 ## 3. Run the tests
 
